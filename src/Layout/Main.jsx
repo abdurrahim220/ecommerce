@@ -1,12 +1,18 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import { Outlet } from "react-router-dom";
+import AppContext from "../utils/context";
+
 
 const Main = () => {
   return (
-    <div>
-        <Navbar/>
-        <Outlet/>
-    </div>
-  )
-}
+    <AppContext>
+      <Header />
+      <Outlet />
+      <Footer />
+    </AppContext>
+  );
+};
 
-export default Main
+export default Main;
