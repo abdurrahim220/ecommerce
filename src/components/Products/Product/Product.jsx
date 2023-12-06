@@ -1,9 +1,14 @@
 import "./Product.scss";
 
 import prod from "../../../assets/products/earbuds-prod-1.webp";
+import { useNavigate } from "react-router-dom";
 const Product = ({ item }) => {
+  const navigate = useNavigate();
   return (
-    <div className="product-card">
+    <div
+      className="product-card"
+      onClick={() => navigate(`/product/${item._id}`)}
+    >
       <div className="thumbnail">
         <img src={item.image} alt="" />
       </div>

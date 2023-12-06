@@ -10,23 +10,38 @@ import {
 
 import prod from "../../assets/products/earbuds-prod-1.webp";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
+import { useParams } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
+import { useState } from "react";
+
 const SingleProduct = () => {
+  const [quantity, setQuantity] = useState(1);
+  const { id } = useParams();
+  // console.log(id)
+  const { data2 } = useProducts(`/products`);
+
+  const products = data2?.find((item) => item?._id === id);
+
+  // console.log(products?.category)
+
   return (
     <div className="single-product-main-content">
       <div className="layout">
         <div className="single-product-page">
           <div className="left">
-            <img src={prod} alt="" />
+            <img src={products?.image} alt="" />
           </div>
           <div className="right">
-            <span className="name">Product Name</span>
-            <span className="price">Price</span>
-            <span className="desc">Product description</span>
+            <span className="name">{products?.title}</span>
+            <span className="price">${products?.price}</span>
+            <span className="desc">{products?.desc}</span>
             <div className="cart-buttons">
               <div className="quantity-buttons">
-                <span>-</span>
-                <span>5</span>
-                <span>+</span>
+                <span onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+                  -
+                </span>
+                <span>{quantity}</span>
+                <span onClick={() => setQuantity(quantity + 1)}>+</span>
               </div>
               <button className="add-to-cart-button">
                 <FaCartPlus size={20} />
@@ -37,7 +52,7 @@ const SingleProduct = () => {
             <div className="info-item">
               <span className="text-bold">
                 Category:
-                <span>Headphones</span>
+                <span>{products?.category}</span>
               </span>
               <span className="text-bold">
                 Shares:
@@ -52,7 +67,7 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-        <RelatedProducts />
+        <RelatedProducts productsId={id} categoryName={products?.category} />
       </div>
     </div>
   );
