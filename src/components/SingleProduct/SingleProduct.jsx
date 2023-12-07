@@ -12,13 +12,16 @@ import prod from "../../assets/products/earbuds-prod-1.webp";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import { useParams } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Context } from "../../utils/context";
 
 const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   // console.log(id)
   const { data2 } = useProducts(`/products`);
+
+  const { handleAddToCart } = useContext(Context);
 
   const products = data2?.find((item) => item?._id === id);
 
@@ -43,7 +46,13 @@ const SingleProduct = () => {
                 <span>{quantity}</span>
                 <span onClick={() => setQuantity(quantity + 1)}>+</span>
               </div>
-              <button className="add-to-cart-button">
+              <button
+                onClick={() => {
+                  handleAddToCart(products, quantity);
+                  setQuantity(1);
+                }}
+                className="add-to-cart-button"
+              >
                 <FaCartPlus size={20} />
                 ADD TO CART
               </button>
