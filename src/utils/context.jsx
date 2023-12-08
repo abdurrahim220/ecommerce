@@ -10,7 +10,7 @@ const AppContext = ({ children }) => {
   const [cartSubTotal, setCartSubTotal] = useState(0);
   const location = useLocation();
 
-  // console.log(cartItems);
+  console.log(cartItems);
   // Only run this effect once when the component mounts
 
   useEffect(() => {

@@ -5,10 +5,25 @@ import CartItem from "./CartItem/CartItem";
 import { useContext } from "react";
 import { Context } from "../../utils/context";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import { baseUrl } from "../../utils/api";
 const Cart = ({ setShowCart }) => {
   const navigate = useNavigate();
   const { cartSubTotal, cartItems } = useContext(Context);
+
+  const handleCheckOut = () => {
+    // console.log(cartItems);
+    axios
+      .post(`${baseUrl}/create-checkout-session`, { cartItems })
+      .then((res) => {
+        if (res.data.url) {
+          window.location.href = res.data.url;
+        }
+      })
+      .catch((err) => {
+        // console.log(err.message);
+      });
+  };
   return (
     <div className="cart-panel">
       <div className="opac-layer"></div>
@@ -39,7 +54,12 @@ const Cart = ({ setShowCart }) => {
                 <span className="text total">${cartSubTotal}</span>
               </div>
               <div className="button">
-                <button className="checkout-cta">Checkout</button>
+                <button
+                  onClick={() => handleCheckOut(cartItems)}
+                  className="checkout-cta"
+                >
+                  Checkout
+                </button>
               </div>
             </div>
           </>
