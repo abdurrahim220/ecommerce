@@ -7,15 +7,23 @@ import { Context } from "../../utils/context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../utils/api";
+import { v4 as uuidv4 } from "uuid";
+
 const Cart = ({ setShowCart }) => {
   const navigate = useNavigate();
   const { cartSubTotal, cartItems } = useContext(Context);
 
   const handleCheckOut = () => {
-    // console.log(cartItems);
+    console.log(cartItems);
+    const user_id = uuidv4();
+    // console.log(user_id);
     axios
-      .post(`${baseUrl}/create-checkout-session`, { cartItems })
+      .post(`${baseUrl}/create-checkout-session`, {
+        cartItems,
+        userId: user_id,
+      })
       .then((res) => {
+        // console.log(res.data);
         if (res.data.url) {
           window.location.href = res.data.url;
         }
