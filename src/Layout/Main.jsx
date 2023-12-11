@@ -4,13 +4,17 @@ import Footer from "../components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import AppContext from "../utils/context";
 import Newsletter from "../components/Footer/Newsletter/Newsletter";
+import { useLocation } from "react-router-dom";
 
 const Main = () => {
+  const path = useLocation().pathname;
   return (
     <AppContext>
       <Header />
+
       <Outlet />
-      <Newsletter />
+
+      {path === "/" && <Newsletter />}
       <Footer />
     </AppContext>
   );

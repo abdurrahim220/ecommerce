@@ -4,6 +4,8 @@ import Home from "../components/Home/Home";
 import Category from "../components/Category/Category";
 import SingleProduct from "../components/SingleProduct/SingleProduct";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Login from "../components/UserPage/LoginPage/Login";
+import Register from "../components/UserPage/RegisterPage/Register";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,15 @@ const router = createBrowserRouter([
       {
         path: "/checkout-success",
         element: <Category />,
+      },
+
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
       {
         path: "/product/:id",
