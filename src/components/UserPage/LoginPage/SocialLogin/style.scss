@@ -1,0 +1,9 @@
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  .icons:hover {
+    color: aqua;
+  }
+}
