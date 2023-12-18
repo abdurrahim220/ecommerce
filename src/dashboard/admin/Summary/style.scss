@@ -1,0 +1,35 @@
+.summary {
+  width: 100%;
+  display: flex;
+  .mainStats {
+    flex: 2;
+    width: 100%;
+    .overView {
+      background: rgb(48, 51, 79);
+      color: rgba(234, 234, 255, 0.87);
+      width: 100%;
+      padding: 1.5rem;
+      height: 170px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .title {
+        font-size: 14px;
+        color: rgba(234, 234, 255, 0.68);
+      }
+      .widgetWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+  .sideStats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    width: 100%;
+  }
+}

@@ -8,9 +8,13 @@ import Login from "../components/UserPage/LoginPage/Login";
 import Register from "../components/UserPage/RegisterPage/Register";
 import Loader from "../components/Loader/Loader";
 import React, { Suspense } from "react";
+import Summary from "../dashboard/admin/Summary/Summary";
 
+const DashboardHome = React.lazy(() =>
+  import("../dashboard/Layout/DashboardHome")
+);
 
-const Main = React.lazy(()=>import('../Layout/Main'))
+const Main = React.lazy(() => import("../Layout/Main"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +49,21 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <SingleProduct />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    errorElement: <ErrorPage />,
+    element: (
+      <Suspense fallback={<Loader />}>
+        <DashboardHome />
+      </Suspense>
+    ),
+    children: [
+      {
+        path: "/dashboard/summary",
+        element: <Summary />,
       },
     ],
   },
