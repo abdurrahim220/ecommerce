@@ -16,30 +16,26 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault();
 
-    // Validate user input
     const validationErrors = validateInputs(user);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    // Call the createUser function from your AuthContext
+    // Calling the createUser function from my AuthContext
     createUser(user.email, user.password)
       .then((result) => {
         const firebaseUser = result.user;
-        // Update user profile with additional information (e.g., name)
         return updateUser(user.name);
       })
       .then(() => {
-        // Send user data to your backend using Axios
+        // Sending user data to backend using Axios
         sendUserDataToBackend(user)
           .then((backendResponse) => {
-            // console.log("User data sent to backend:", backendResponse);
-            // Clear the form inputs
             setUser({ name: "", email: "", password: "" });
 
-            // Redirect or navigate after successful registration and data sent to backend
-            navigate(from, { replace: true });
+            // navigate(from, { replace: true });
+            navigate("/");
           })
           .catch((error) => {
             console.error("Error sending user data to backend:", error);
@@ -47,24 +43,21 @@ const Register = () => {
       })
       .catch((error) => {
         console.error("Registration error:", error);
-        // Handle registration error (e.g., display an error message to the user)
       });
   };
 
   const sendUserDataToBackend = (userData) => {
-    // Adjust the URL and data according to your backend API
+    // Adjusting the URL and data according to your backend API
     const backendApiUrl = "http://localhost:5000/api/register";
     return axios.post(backendApiUrl, userData);
   };
 
   const handleChange = (e) => {
-    // Update the user state as the user types
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
 
-    // Clear the error message when the user starts typing in a field
     setErrors({
       ...errors,
       [e.target.name]: "",
@@ -73,8 +66,6 @@ const Register = () => {
 
   const validateInputs = (data) => {
     const errors = {};
-
-    // Validate empty fields
     Object.keys(data).forEach((key) => {
       if (!data[key]) {
         errors[key] = "This field is required.";

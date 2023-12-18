@@ -8,8 +8,13 @@ import Cart from "../Cart/Cart";
 import Search from "./Search/Search";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../utils/context";
+import { AuthContext } from "../../provider/AuthProvider";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+
+  const { user, logOut } = useContext(AuthContext);
+
+  // console.log(user);
 
   const navigate = useNavigate();
 
@@ -29,6 +34,14 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLogOut = () => {
+    console.log("hello");
+    logOut()
+      .then()
+      .catch((error) => {
+        // console.log(error);
+      });
+  };
   return (
     <>
       <header className={`main-header ${scrolled ? "sticky-header" : ""}`}>
@@ -43,7 +56,13 @@ const Header = () => {
           </div>
           <div className="right">
             <TbSearch onClick={() => setShowSearch(true)} />
-            <BiLogInCircle onClick={() => navigate("/login")} />
+            {user ? <img src={user.photoURL} className="user-image" alt='logo' /> : ""}
+
+            {user ? (
+              <button onClick={handleLogOut}>Log Out</button>
+            ) : (
+              <BiLogInCircle onClick={() => navigate("/login")} />
+            )}
             <span className="cart-icon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
               {!!cartCount && <span>{cartCount}</span>}

@@ -8,29 +8,36 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../utils/api";
 import { v4 as uuidv4 } from "uuid";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Cart = ({ setShowCart }) => {
   const navigate = useNavigate();
   const { cartSubTotal, cartItems } = useContext(Context);
 
+  const { user } = useContext(AuthContext);
+  // console.log(user)
   const handleCheckOut = () => {
-    console.log(cartItems);
-    const user_id = uuidv4();
+    // console.log(cartItems);
+   
     // console.log(user_id);
-    axios
-      .post(`${baseUrl}/create-checkout-session`, {
-        cartItems,
-        userId: user_id,
-      })
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.url) {
-          window.location.href = res.data.url;
-        }
-      })
-      .catch((err) => {
-        // console.log(err.message);
-      });
+    if (user) {
+      axios
+        .post(`${baseUrl}/create-checkout-session`, {
+          cartItems,
+          useRId: user?.uid,
+        })
+        .then((res) => {
+          // console.log(res.data);
+          if (res.data.url) {
+            window.location.href = res.data.url;
+          }
+        })
+        .catch((err) => {
+          // console.log(err.message);
+        });
+    } else {
+      navigate("/login");
+    }
   };
   return (
     <div className="cart-panel">

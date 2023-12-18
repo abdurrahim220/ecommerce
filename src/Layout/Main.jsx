@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 
 const Main = () => {
   const path = useLocation().pathname;
+  
   return (
     <AppContext>
       <Header />
