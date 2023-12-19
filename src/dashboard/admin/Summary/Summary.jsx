@@ -6,6 +6,7 @@ import "./style.scss";
 import Widget from "./Widget";
 import { fetchDataFromApi } from "../../../utils/api";
 import Charts from "../../../components/Charts/Charts";
+import Transactions from "../../../components/Transactions/Transactions";
 const Summary = () => {
   const [user, setUser] = useState([]);
   const [userPerc, setUserPerc] = useState(0);
@@ -15,10 +16,6 @@ const Summary = () => {
 
   const [ordersIncome, setOrdersIncome] = useState([]);
   const [orderIncomePerc, setOrderIncomePerc] = useState(0);
-
-  // console.log(orders)
-  // console.log(user)
-  // console.log(ordersIncome)
 
   const compare = (a, b) => {
     if (a._id < b._id) {
@@ -120,7 +117,9 @@ const Summary = () => {
         </div>
         <Charts />
       </div>
-      <div className="sideStats"></div>
+      <div className="sideStats">
+        <Transactions />
+      </div>
     </div>
   );
 };
