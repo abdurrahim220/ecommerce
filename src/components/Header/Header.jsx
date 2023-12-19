@@ -51,12 +51,16 @@ const Header = () => {
             <li>About</li>
             <li>Categories</li>
           </ul>
-          <div className="center" onClick={() => navigate("/")}>
-            Rahim
+          <div className="center" onClick={() => navigate("/dashboard")}>
+            Dashboard
           </div>
           <div className="right">
             <TbSearch onClick={() => setShowSearch(true)} />
-            {user ? <img src={user.photoURL} className="user-image" alt='logo' /> : ""}
+            {user ? (
+              <img src={user.photoURL} className="user-image" alt="logo" />
+            ) : (
+              ""
+            )}
 
             {user ? (
               <button onClick={handleLogOut}>Log Out</button>
