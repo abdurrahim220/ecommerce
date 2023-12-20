@@ -1,0 +1,40 @@
+.styledProduct {
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  .productContainer {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 28px 0px;
+    border-radius: 5px;
+    padding: 2rem;
+    .imageContainer {
+      flex: 1;
+      img {
+        width: 100%;
+      }
+    }
+    .productDetails {
+      flex: 2;
+      margin-left: 2rem;
+      h3 {
+        font-size: 35px;
+      }
+      p span {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+
+
+
+.price {
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 25px;
+}

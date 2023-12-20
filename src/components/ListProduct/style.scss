@@ -1,0 +1,26 @@
+.imageContainer {
+  img {
+    height: 40px;
+  }
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  button {
+    border: none;
+    outline: none;
+    padding: 3px 3px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+
+.delete {
+  background-color: rgb(255, 77, 73);
+}
+.view {
+  background-color: rgb(155, 255, 40);
+}

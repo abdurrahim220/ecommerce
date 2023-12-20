@@ -6,7 +6,7 @@ import useProducts from "../../../hooks/useProducts";
 import React, { useState } from "react";
 
 const Search = ({ setShowSearch }) => {
-  const { data2 } = useProducts(`/products`);
+  const  [data2]  = useProducts(`/products`);
   // console.log(data2)
   const [query, setQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(null);

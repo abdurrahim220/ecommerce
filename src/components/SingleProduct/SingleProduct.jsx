@@ -19,7 +19,7 @@ const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   // console.log(id)
-  const { data2 } = useProducts(`/products`);
+  const [ data2 ] = useProducts(`/products`);
 
   const { handleAddToCart } = useContext(Context);
 
@@ -32,7 +32,8 @@ const SingleProduct = () => {
       <div className="layout">
         <div className="single-product-page">
           <div className="left">
-            <img src={products?.image} alt="" />
+       
+            <img src={products?.image.url ? products?.image.url : products?.image} alt="" />
           </div>
           <div className="right">
             <span className="name">{products?.title}</span>

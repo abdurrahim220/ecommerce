@@ -4,6 +4,8 @@ import { fetchDataFromApi } from '../utils/api';
 const useProducts = (endPoint) => {
     const [data2, setData] = useState();
 
+    // console.log(data2)
+
     useEffect(() => {
       makeApiCall();
     }, []);
@@ -13,7 +15,7 @@ const useProducts = (endPoint) => {
       setData(res);
     };
   
-    return {data2};
+    return [data2];
   };
 
 

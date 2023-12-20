@@ -9,6 +9,13 @@ import Register from "../components/UserPage/RegisterPage/Register";
 import Loader from "../components/Loader/Loader";
 import React, { Suspense } from "react";
 import Summary from "../dashboard/admin/Summary/Summary";
+import Products from "../dashboard/admin/Products/Products";
+import Users from "../dashboard/admin/Users/Users";
+import Orders from "../dashboard/admin/Orders/Orders";
+import CreateProduct from "../dashboard/admin/CreateProduct/CreateProduct";
+import DetailsProduct from "../components/Details/DetailsProduct";
+import Order from "../components/Details/Order";
+import UserProfile from "../components/Details/UserProfile";
 
 const DashboardHome = React.lazy(() =>
   import("../dashboard/Layout/DashboardHome")
@@ -50,6 +57,18 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <SingleProduct />,
       },
+      {
+        path: "/productDetails/:id",
+        element: <DetailsProduct />,
+      },
+      {
+        path: "/productOrder/:id",
+        element: <Order />,
+      },
+      {
+        path: "/userProfile/:id",
+        element: <UserProfile />,
+      },
     ],
   },
   {
@@ -64,6 +83,22 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/summary",
         element: <Summary />,
+      },
+      {
+        path: "/dashboard/products",
+        element: <Products />,
+      },
+      {
+        path: "/dashboard/products/create",
+        element: <CreateProduct />,
+      },
+      {
+        path: "/dashboard/orders",
+        element: <Orders />,
+      },
+      {
+        path: "/dashboard/users",
+        element: <Users/>,
       },
     ],
   },

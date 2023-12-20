@@ -7,6 +7,7 @@ import Widget from "./Widget";
 import { fetchDataFromApi } from "../../../utils/api";
 import Charts from "../../../components/Charts/Charts";
 import Transactions from "../../../components/Transactions/Transactions";
+import AllTimeData from "../../../components/AllTimeData/AllTimeData";
 const Summary = () => {
   const [user, setUser] = useState([]);
   const [userPerc, setUserPerc] = useState(0);
@@ -119,6 +120,7 @@ const Summary = () => {
       </div>
       <div className="sideStats">
         <Transactions />
+        <AllTimeData />
       </div>
     </div>
   );

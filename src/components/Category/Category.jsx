@@ -8,8 +8,8 @@ const Category = () => {
   const { id } = useParams();
   // console.log(id)
   const  [data]  = useFetch(`/categories`);
-  const { data2 } = useProducts(`/products`);
-  // console.log(data)
+  const  [data2 ] = useProducts(`/products`);
+  // console.log(data2)
   const filteredData = data?.categories?.find((item) => item._id === id);
   // console.log(filteredData?.name)
 

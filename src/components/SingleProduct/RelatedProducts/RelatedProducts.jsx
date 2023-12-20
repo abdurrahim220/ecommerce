@@ -3,7 +3,7 @@ import Products from "../../Products/Products";
 
 const RelatedProducts = ({categoryName,productsId}) => {
 
-  const { data2 } = useProducts(`/products`);
+  const  [data2]  = useProducts(`/products`);
   // console.log(productsId)
 
   const products = data2?.filter((item) => item.category === categoryName && !productsId.includes(item._id));
