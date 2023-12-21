@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./style.scss";
-import axios  from 'axios';
-
+import axios from "axios";
+import Swal from 'sweetalert2'
 const CreateProduct = () => {
   const [productImg, setProductImg] = useState("");
-
+  const [loading, setLoading] = useState(false);
   // console.log(productImg)
 
   const [formData, setFormData] = useState({
@@ -39,6 +39,8 @@ const CreateProduct = () => {
           ...formData,
           image: reader.result,
         });
+        const imagePreview = document.getElementById("image-preview");
+        imagePreview.src = reader.result;
       };
     } else {
       setProductImg("");
@@ -53,16 +55,27 @@ const CreateProduct = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/newProducts", formData);
+      setLoading(true);
+      const response = await axios.post(
+        "http://localhost:5000/api/newProducts",
+        formData
+      );
 
       if (response.status === 200) {
-        console.log("Product created successfully!");
-        // You can perform additional actions here, such as redirecting the user
+        Swal.fire({
+          position: "bottom-start",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
       } else {
-        console.error("Failed to create product");
+        
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -135,7 +148,7 @@ const CreateProduct = () => {
                 required
               />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">{loading ? "Creating..." : "Submit"}</button>
           </form>
         </div>
         <div className="preview-image-container">
