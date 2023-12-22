@@ -1,0 +1,36 @@
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  button {
+    border: none;
+    outline: none;
+    padding: 3px 3px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+
+.delete {
+  background-color: rgb(255, 77, 73);
+}
+.view {
+  background-color: rgb(155, 255, 40);
+}
+
+.admin {
+  color: rgb(253, 181, 40);
+  background: rgba(253, 181, 40, 0.12);
+  padding: 3px 5px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.user {
+  color: rgb(38, 198, 249);
+  background: rgba(38, 198, 249, 0.12);
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
