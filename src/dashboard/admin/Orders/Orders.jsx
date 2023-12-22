@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import './Orders.scss'
+import "./Orders.scss";
+import OrderLIst from "../../../components/ListProduct/Order/OrderLIst";
 const Orders = () => {
   return (
-    <div>Orders</div>
-  )
-}
+    <div>
+      <OrderLIst />
+    </div>
+  );
+};
 
-export default Orders
+export default Orders;

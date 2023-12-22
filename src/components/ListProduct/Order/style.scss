@@ -1,0 +1,25 @@
+.dispatchBtn {
+  background-color: rgb(38, 198, 249);
+}
+.deliveryBtn {
+  background-color: rgb(102, 108, 255);
+}
+.view {
+  background-color: rgb(114, 255, 40);
+}
+
+.pending {
+  color: rgb(253, 181, 40);
+  background: rgba(253, 181, 40, 0.12);
+  padding: 3px 3px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.dispatched {
+  color: rgb(38, 198, 249);
+  background: rgba(38, 198, 249, 0.12);
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}

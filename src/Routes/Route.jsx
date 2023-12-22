@@ -14,8 +14,9 @@ import Users from "../dashboard/admin/Users/Users";
 import Orders from "../dashboard/admin/Orders/Orders";
 import CreateProduct from "../dashboard/admin/CreateProduct/CreateProduct";
 import DetailsProduct from "../components/Details/DetailsProduct";
-import Order from "../components/Details/Order";
+
 import UserProfile from "../components/Details/UserProfile";
+import Order from "../components/Details/Order";
 
 const DashboardHome = React.lazy(() =>
   import("../dashboard/Layout/DashboardHome")
