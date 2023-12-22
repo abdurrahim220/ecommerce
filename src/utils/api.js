@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseUrl = "http://localhost:5000/api";
+export const baseUrl = "https://rahimstore.onrender.com/api";
 
 export const fetchDataFromApi = async (url) => {
   try {

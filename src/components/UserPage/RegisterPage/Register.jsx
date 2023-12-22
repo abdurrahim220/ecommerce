@@ -48,7 +48,7 @@ const Register = () => {
 
   const sendUserDataToBackend = (userData) => {
     // Adjusting the URL and data according to your backend API
-    const backendApiUrl = "http://localhost:5000/api/register";
+    const backendApiUrl = "https://rahimstore.onrender.com/api/register";
     return axios.post(backendApiUrl, userData);
   };
 

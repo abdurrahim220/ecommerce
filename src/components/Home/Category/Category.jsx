@@ -9,20 +9,6 @@ const Category = ({ categories }) => {
   const navigate = useNavigate()
   return (
     <div className="shop-by-category">
-      {/* <div className="categories">
-        <div className="category">
-          <img  alt="" src={cat1} />
-        </div>
-        <div className="category">
-          <img  alt="" src={cat2} />
-        </div>
-        <div className="category">
-          <img  alt="" src={cat3} />
-        </div>
-        <div className="category">
-          <img  alt="" src={cat4} />
-        </div>
-      </div> */}
       <div className="categories">
         {categories.categories?.map((item) => (
           <div key={item._id} onClick={()=>navigate(`/category/${item._id}`)} className="category">

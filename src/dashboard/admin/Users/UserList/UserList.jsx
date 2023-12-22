@@ -15,7 +15,7 @@ export default function UserList() {
   //   console.log(data)
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/allUsers")
+    fetch("https://rahimstore.onrender.com/api/allUsers")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [loading]);

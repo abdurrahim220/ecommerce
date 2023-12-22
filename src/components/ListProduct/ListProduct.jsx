@@ -15,7 +15,7 @@ export default function ListProduct() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://rahimstore.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [loading]);

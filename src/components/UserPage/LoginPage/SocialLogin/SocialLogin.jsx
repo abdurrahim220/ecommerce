@@ -25,7 +25,7 @@ const SocialLogin = () => {
         navigate(from, { replace: true });
         // Send a POST request to your backend API for user registration using Axios
         axios
-          .post("http://localhost:5000/api/register", saveUser)
+          .post("https://rahimstore.onrender.com/api/register", saveUser)
           .then((response) => {
             // console.log("User registered successfully:", response.data);
             // Redirect or navigate after successful registration

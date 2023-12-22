@@ -15,7 +15,7 @@ export default function OrderList() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/orders/all")
+    fetch("https://rahimstore.onrender.com/api/orders/all")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [loading]);

@@ -57,7 +57,7 @@ const CreateProduct = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:5000/api/newProducts",
+        "https://rahimstore.onrender.com/api/newProducts",
         formData
       );
 
