@@ -4,12 +4,13 @@ import "./Products.scss";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 
 const Products = ({ products, innerPage, headingText }) => {
+  // Check if products is undefined, and provide a default empty array if it is
+  const productsArray = products || [];
+
   const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 4;
 
-  // Define different itemsPerPage based on the device size
-  const itemsPerPage = window.innerWidth >= 768 ? 4 : 2;
-
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(productsArray.length / itemsPerPage);
 
   const handleNextClick = () => {
     setCurrentPage((prevPage) => (prevPage + 1) % totalPages);
@@ -20,9 +21,7 @@ const Products = ({ products, innerPage, headingText }) => {
   };
 
   const startIndex = currentPage * itemsPerPage;
-  const visibleProducts = products.slice(startIndex, startIndex + itemsPerPage);
-
-  
+  const visibleProducts = productsArray.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="products-container">

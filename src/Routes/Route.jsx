@@ -17,6 +17,7 @@ import DetailsProduct from "../components/Details/DetailsProduct";
 
 import UserProfile from "../components/Details/UserProfile";
 import Order from "../components/Details/Order";
+import AllItems from "../components/AllItems/AllItems";
 
 const DashboardHome = React.lazy(() =>
   import("../dashboard/Layout/DashboardHome")
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/category/:id",
         element: <Category />,
+      },
+      {
+        path: "/all-items",
+        element: <AllItems />,
       },
       {
         path: "/checkout-success",

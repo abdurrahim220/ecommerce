@@ -1,0 +1,81 @@
+@import "../../css-config/mixins.scss";
+
+.items-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  @include md {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    gap: 10px;
+  }
+  .c-1 {
+    @include md {
+      width: 20%;
+    }
+    // border: 2px solid rgb(78, 73, 73);
+    .filter-data-container {
+      padding: 6px;
+
+      .price-data {
+        padding: 3px;
+        margin-top: 10px;
+        h1 {
+          font-size: 16px;
+        }
+        @include md {
+          display: grid;
+          h1 {
+            font-size: 30px;
+            margin-bottom: 4px;
+          }
+        }
+        label {
+          padding: 2px;
+          margin-top: 2px;
+        }
+      }
+      .category-data {
+        padding: 3px;
+        margin-top: 10px;
+        h1 {
+          font-size: 16px;
+        }
+        @include md {
+          display: grid;
+          margin-top: 30px;
+          h1 {
+            font-size: 30px;
+            margin-bottom: 4px;
+          }
+        }
+        label {
+          padding: 2px;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+  .c-2 {
+    // border: 2px solid red;
+    @include md {
+      width: 80%;
+    }
+    .product-card-container {
+      display: flex;
+      flex-flow: wrap;
+      gap: 5px;
+      padding: 8px;
+     
+    }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
