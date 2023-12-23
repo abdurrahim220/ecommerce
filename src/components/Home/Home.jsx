@@ -23,18 +23,40 @@ const Home = () => {
       });
   }, []);
 
+  const SmartWatch = products?.filter(
+    (item) => item.category === "SmartWatch"
+  );
+  const WirelessEarbuds = products?.filter(
+    (item) => item.category === "WirelessEarbuds"
+  );
+  const BluetoothSpeakers = products?.filter(
+    (item) => item.category === "BluetoothSpeakers"
+  );
+  const Headphones = products?.filter(
+    (item) => item.category === "Headphones"
+  );
+
   return (
     <div>
       <Banner />
       <div className="main-content">
         <div className="layout">
           <Category categories={categories} />
+
           <Products products={products} headingText="Popular Products" />
-          <Products products={products} headingText="Popular smart watches" />
-          <Products products={products} headingText="Popular wireless earbuds" />
-          <Products products={products} headingText="Popular bluetooth speakers" />
-          <Products products={products} headingText="Popular headphones" />
-          
+
+          <Products products={SmartWatch} headingText="Popular smart watches" />
+
+          <Products
+            products={WirelessEarbuds}
+            headingText="Popular wireless earbuds"
+          />
+
+          <Products
+            products={BluetoothSpeakers}
+            headingText="Popular bluetooth speakers"
+          />
+          <Products products={Headphones} headingText="Popular headphones" />
         </div>
       </div>
     </div>
