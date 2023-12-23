@@ -17,6 +17,9 @@
         @include md {
             height: 350px;
         }
+        @include sm {
+            height: 300px;
+        }
         img {
             transition: all ease 0.3s;
             display: block;
@@ -26,6 +29,7 @@
     .prod-details {
         .name {
             font-size: 14px;
+            
             display: block;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -46,10 +50,6 @@
         .thumbnail {
             img {
                 transform: scale(1.2);
-                -webkit-transform: scale(1.2);
-                -moz-transform: scale(1.2);
-                -ms-transform: scale(1.2);
-                -o-transform: scale(1.2);
 }
         }
     }

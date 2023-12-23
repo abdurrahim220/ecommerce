@@ -16,20 +16,22 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {Outlet,Link} from 'react-router-dom'
+import {Outlet,Link,useLocation} from 'react-router-dom'
 const drawerWidth = 240;
 
 function Sidebar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const location = useLocation();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const items = [
+    { text: 'Home', icon: < HomeIcon/>, link: '/' },
     { text: ' Summary', icon: <DashboardIcon />, link: '/dashboard/summary' },
     { text: 'Products', icon: <ProductionQuantityLimitsIcon />, link: '/dashboard/products' },
     { text: 'Orders', icon: <ContentPasteIcon />, link: '/dashboard/orders' },
@@ -43,7 +45,7 @@ function Sidebar(props) {
       <List>
       {items.map((item) => (
         <ListItem key={item.text} disablePadding>
-          <ListItemButton component={Link} to={item.link}>
+          <ListItemButton component={Link} to={item.link}  style={{ color: location.pathname === item.link ? 'blue' : 'inherit' }}>
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
           </ListItemButton>

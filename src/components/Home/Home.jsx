@@ -30,6 +30,11 @@ const Home = () => {
         <div className="layout">
           <Category categories={categories} />
           <Products products={products} headingText="Popular Products" />
+          <Products products={products} headingText="Popular smart watches" />
+          <Products products={products} headingText="Popular wireless earbuds" />
+          <Products products={products} headingText="Popular bluetooth speakers" />
+          <Products products={products} headingText="Popular headphones" />
+          
         </div>
       </div>
     </div>

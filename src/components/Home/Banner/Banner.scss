@@ -24,7 +24,19 @@
             z-index: 9;
             width: 200px;
             margin-bottom: 20px;
+            @include sm {
+                width: 200px;
+                margin-right: 60px;
+                margin-top: 50px;
+                margin-bottom: 0;
+            }
             @include md {
+                width: 350px;
+                margin-right: 60px;
+                margin-top: 50px;
+                margin-bottom: 0;
+            }
+            @include lg {
                 width: 500px;
                 margin-right: 60px;
                 margin-top: 50px;
@@ -58,7 +70,10 @@
                 color: white;
                 margin-bottom: 20px;
                 @include md {
-                    font-size: 180px;
+                    font-size: 140px;
+                }
+                @include sm {
+                    font-size: 100px;
                 }
             }
             p {

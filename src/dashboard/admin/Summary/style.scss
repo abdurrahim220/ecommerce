@@ -1,9 +1,21 @@
+@import "../../../css-config/mixins.scss";
 .summary {
   width: 100%;
-  display: flex;
+  // display: flex;
+  
+  @include lg {
+    display: flex;
+    gap: 10px;
+  }
   .mainStats {
     flex: 2;
     width: 100%;
+    @include sm {
+     margin-bottom: 25px;
+    }
+    @include xs {
+     margin-bottom: 25px;
+    }
     .overView {
       background: rgb(48, 51, 79);
       color: rgba(234, 234, 255, 0.87);
@@ -14,6 +26,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      @include md {
+        padding: 1.5rem;
+        height: 170px;
+       }
       .title {
         font-size: 14px;
         color: rgba(234, 234, 255, 0.68);
@@ -25,11 +41,11 @@
       }
     }
   }
+
   .sideStats {
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-direction: column;
-    margin-left: 2rem;
     width: 100%;
   }
 }
