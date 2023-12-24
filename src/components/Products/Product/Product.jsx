@@ -1,10 +1,11 @@
 import "./Product.scss";
-
+import Rating from '@mui/material/Rating';
 import prod from "../../../assets/products/earbuds-prod-1.webp";
 import { useNavigate } from "react-router-dom";
 const Product = ({ item }) => {
   const navigate = useNavigate();
   // console.log(item)
+  const value = 3.5;
   return (
     <div
       className="product-card"
@@ -23,7 +24,7 @@ const Product = ({ item }) => {
           }}
         >
           <span className="price">${item?.price}</span>
-          <span className="price">*****</span>
+          <Rating name="read-only" value={value} readOnly />
         </div>
       </div>
     </div>

@@ -2,7 +2,9 @@ import React from "react";
 import "./Footer.scss";
 import { FaLocationArrow, FaMobileAlt, FaEnvelope } from "react-icons/fa";
 import Payment from "../../assets/payments.png";
+import { useNavigate } from 'react-router-dom';
 const Footer = () => {
+  const navigate = useNavigate()
   return (
     <div className="footer">
       <div className="footer-content">
@@ -19,17 +21,16 @@ const Footer = () => {
           <div className="c-item">
             <FaLocationArrow />
             <div className="text">
-              Kayaloram Rd, Punnamada, Kottankulangara, Alappuzha, Kerala,
-              688006
+              Mohaklai Rd, Nabisco, EastNakhalPara, Tejgao, Dhaka,
             </div>
           </div>
           <div className="c-item">
             <FaMobileAlt />
-            <div className="text">Phone: 0471 272 0261</div>
+            <div className="text">Phone: +8801860754544</div>
           </div>
           <div className="c-item">
             <FaEnvelope />
-            <div className="text">Email: store@jsdev.com</div>
+            <div className="text">Email: z.abdurrahim5@gmail.com</div>
           </div>
         </div>
         <div className="col">
@@ -38,12 +39,11 @@ const Footer = () => {
           <span className="text">Smart Watches</span>
           <span className="text">Bluetooth Speakers</span>
           <span className="text">Wireless Earbuds</span>
-          <span className="text">Home Theatre</span>
-          <span className="text">Projectors</span>
+          
         </div>
         <div className="col">
           <div className="title">Pages</div>
-          <span className="text">Home</span>
+          <span className="text" onClick={()=>navigate("/")}>Home</span>
           <span className="text">About</span>
           <span className="text">Privacy Policy</span>
           <span className="text">Returns</span>
@@ -54,7 +54,7 @@ const Footer = () => {
       <div className="bottom-bar">
         <div className="bottom-bar-content">
           <span className="text">
-            JSDEVSTORE 2022 CREATED BY JS DEV. PREMIUM E-COMMERCE SOLUTIONS.
+            RAHIMSTORE 2023 CREATED BY MDRAHIM. PREMIUM E-COMMERCE SOLUTIONS.
           </span>
           <img src={Payment} />
         </div>

@@ -29,12 +29,12 @@ const Register = () => {
         return updateUser(user.name);
       })
       .then(() => {
-        // Sending user data to backend using Axios
+    
         sendUserDataToBackend(user)
           .then((backendResponse) => {
             setUser({ name: "", email: "", password: "" });
 
-            // navigate(from, { replace: true });
+          
             navigate("/");
           })
           .catch((error) => {
@@ -47,7 +47,6 @@ const Register = () => {
   };
 
   const sendUserDataToBackend = (userData) => {
-    // Adjusting the URL and data according to your backend API
     const backendApiUrl = "https://rahimstore.onrender.com/api/register";
     return axios.post(backendApiUrl, userData);
   };

@@ -22,10 +22,11 @@
         }
         .left {
             list-style-type: none;
-            display: none;
+           
+            display: flex;
             gap: 25px;
             @include md {
-                display: flex;
+                
             }
             li {
                 font-size: 14px;

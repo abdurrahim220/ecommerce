@@ -9,6 +9,10 @@ import Search from "./Search/Search";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../utils/context";
 import { AuthContext } from "../../provider/AuthProvider";
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+
+import IconButton from '@mui/material/IconButton';
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -21,6 +25,7 @@ const Header = () => {
   const [showCart, setShowCart] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const { cartCount } = useContext(Context);
+  const [anchorEl, setAnchorEl] =useState(null);
   const handleScroll = () => {
     const offset = window.scrollY;
     // console.log(offset)
@@ -42,31 +47,61 @@ const Header = () => {
         // console.log(error);
       });
   };
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       <header className={`main-header ${scrolled ? "sticky-header" : ""}`}>
         <div className="header-content">
           <ul className="left">
             <li onClick={() => navigate("/")}>Home</li>
-            <li>About</li>
             <li onClick={() => navigate("/all-items")}>All Items</li>
           </ul>
-          <div className="center" onClick={() => navigate("/dashboard")}>
-            Dashboard
-          </div>
+           
+
           <div className="right">
             <TbSearch onClick={() => setShowSearch(true)} />
             {user ? (
-              <img src={user.photoURL} className="user-image" alt="logo" />
-            ) : (
-              ""
-            )}
+              <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <img src={user.photoURL} className="user-image" alt="logo" />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+               <MenuItem onClick={() => { navigate("/dashboard"); handleClose(); }}>Dashboard</MenuItem>
 
-            {user ? (
-              <button onClick={handleLogOut}>Log Out</button>
+                <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
+              </Menu>
+            </div>
             ) : (
               <BiLogInCircle onClick={() => navigate("/login")} />
             )}
+
             <span className="cart-icon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
               {!!cartCount && <span>{cartCount}</span>}

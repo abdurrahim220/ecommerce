@@ -16,11 +16,9 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
 
   const handleLogin = () => {
-    // Reset errors
     setEmailError("");
     setPasswordError("");
 
-    // Validation logic
     if (!email) {
       setEmailError("Email is required");
       return;
@@ -35,8 +33,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user)
-        // navigate(from, { replace: true });
+        // console.log(user)
         navigate('/');
       })
       .catch((error) => {

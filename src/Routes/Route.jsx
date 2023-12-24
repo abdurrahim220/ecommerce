@@ -18,6 +18,7 @@ import DetailsProduct from "../components/Details/DetailsProduct";
 import UserProfile from "../components/Details/UserProfile";
 import Order from "../components/Details/Order";
 import AllItems from "../components/AllItems/AllItems";
+import UserOrderDetails from "../components/Details/UserOrderDetails";
 
 const DashboardHome = React.lazy(() =>
   import("../dashboard/Layout/DashboardHome")
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/users",
         element: <Users/>,
+      },
+      {
+        path: "/dashboard/usersOrderDetails",
+        element: <UserOrderDetails/>,
       },
     ],
   },
