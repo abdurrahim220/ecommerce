@@ -60,18 +60,7 @@ export default function UserDetailsTable() {
       id: "dStatus",
       label: "Delivery Status",
       minWidth: 100,
-    },
-    {
-      id: "date",
-      label: "Date",
-      minWidth: 130,
-    },
-    {
-      id: "action",
-      label: "Action",
-      minWidth: 130,
-      
-    },
+    }
   ];
 
   const handleChangePage = (event, newPage) => {

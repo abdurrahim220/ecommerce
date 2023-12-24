@@ -19,6 +19,7 @@ import UserProfile from "../components/Details/UserProfile";
 import Order from "../components/Details/Order";
 import AllItems from "../components/AllItems/AllItems";
 import UserOrderDetails from "../components/Details/UserOrderDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const DashboardHome = React.lazy(() =>
   import("../dashboard/Layout/DashboardHome")
@@ -89,27 +90,43 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/summary",
-        element: <Summary />,
+        element: (
+          <PrivateRoute>
+            <Summary />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/products",
-        element: <Products />,
+        element: (
+          <PrivateRoute>
+            <Products />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/products/create",
-        element: <CreateProduct />,
+        element: (
+          <PrivateRoute>
+            <CreateProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/orders",
-        element: <Orders />,
+        element: (
+          <PrivateRoute>
+            <Orders />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/users",
-        element: <Users/>,
+        element: <Users />,
       },
       {
         path: "/dashboard/usersOrderDetails",
-        element: <UserOrderDetails/>,
+        element: <UserOrderDetails />,
       },
     ],
   },
